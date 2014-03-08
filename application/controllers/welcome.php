@@ -19,13 +19,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$request_options = array(
-			'url' => 'http://www.cil.com/welcome/spider',
-			'file' => '../cil/index.html'
-			);
-		$this->load->library('spider', $request_options);
-		$this->spider->exec();
-
+		$this->load->helper('ip');
+		vardump(ip_location('58.23.46.30'),true);
 		$this->load->view('welcome_message');
 	}
 

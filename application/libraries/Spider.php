@@ -16,7 +16,7 @@
 // ------------------------------------------------------------------------
 
 /**
- * CodeIgniter Email Class
+ * CodeIgniter Spider Class
  *
  * Permits email to be sent using Mail, Sendmail, or SMTP.
  *
@@ -181,9 +181,10 @@ class Spider
 			curl_setopt($ch, CURLOPT_FILE, fopen($this->_file,'wb'));
 		}
 
-		$return_array['content'] = curl_exec($ch);
+		$contents = curl_exec($ch);
 
-		$return_array['info'] = curl_getinfo($ch);
+		$return_array = curl_getinfo($ch);
+		$return_array['content'] = $contents;
 
 		curl_close($ch);
 
