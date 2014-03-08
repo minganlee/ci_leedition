@@ -16,7 +16,7 @@
 // ------------------------------------------------------------------------
 
 /**
- * CodeIgniter Array Helpers
+ * CodeIgniter IP Helpers
  *
  * @package		CodeIgniter
  * @subpackage	Helpers
@@ -28,16 +28,14 @@
 // ------------------------------------------------------------------------
 
 /**
- * Element
+ * get ip address location from taobao ip location web service
  *
- * Lets you determine whether an array index is set and whether it has a value.
- * If the element is empty it returns FALSE (or whatever you specify as the default value.)
+ * Lets you get a location of ip address via taobao.com ip location web service
+ * This helper need Spider library depend on curl extension
  *
  * @access	public
  * @param	string
- * @param	array
- * @param	mixed
- * @return	mixed	depends on what the array contains
+ * @return	array
  */
 if ( ! function_exists('ip_location'))
 {
@@ -62,6 +60,15 @@ if ( ! function_exists('ip_location'))
 	}
 }
 
+/**
+ * Judge a ip address string is a valid ip address
+ *
+ * @access	public
+ * @param	string
+ * @return	boolean
+ *				true for valid
+ *				false for invalid
+ */
 if ( ! function_exists('valid_ip'))
 {
 	function valid_ip($ip_string = ''){
