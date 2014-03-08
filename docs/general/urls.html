@@ -63,7 +63,7 @@
 <h2>删除 index.php 文件</h2>
 <p>默认情况下，<strong>index.php</strong> 文件将被包含在你的 URL 中：</p>
 <code>example.com/<var>index.php</var>/news/article/my_article</code>
-<p>你可以很容易的通过 .htaccess 文件来设置一些简单的规则删除它。下面是一个例子，使用&ldquo;negative&rdquo;方法将非指定内容进行重定向：</p>
+<p>在 Apache 环境下，你可以很容易的通过 .htaccess 文件来设置一些简单的规则删除它。下面是一个例子，使用&ldquo;negative&rdquo;方法将非指定内容进行重定向：</p>
 <p><code>RewriteEngine on<br /><br>
     RewriteCond %&#123;REQUEST_FILENAME&#125; !-f<br>
  RewriteCond %&#123;REQUEST_FILENAME&#125; !-d  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//此处有大坑。加上这两句可保证一般css、js文件正常加载。(注意删掉这句注释哦)<br /><br>
@@ -71,6 +71,13 @@ RewriteCond $1 !^(index\.php|images|robots\.txt)<br />
 RewriteRule ^(.*)$ /index.php/$1 [L]</code></p>
 <p class="important"><strong>注意:</strong>如果你的项目不在根目录请把上面这一句改为：<strong>RewriteRule ^(.*)$ index.php/$1 [L]</strong></p>
 <p>在上面的例子中，可以实现任何非 index.php、images 和 robots.txt 的 HTTP 请求都被指向 index.php。</p>
+<p>在 nginx 环境下，你可以通过在 nginx.conf 文件中的&ldquo;location / {}&rdquo;配置段中加入如下配置项来实现 URL 中 index.php 的删除：</p>
+<p><code>location / &#123;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;# code...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;try_files $uri $uri/ /index.php?$uri$args<br />
+&nbsp;&nbsp;&nbsp;&nbsp;# code...<br />
+&#125;
+</code></p>
 <h2>添加 URL 后缀</h2>
 <p>通过设置 <dfn>config/config.php</dfn> 文件，你可以为 CodeIgniter 生成的 URL 添加一个指定的文件后缀。举例来说，如果 URL 是这样的：</p>
 <code>example.com/index.php/products/view/shoes</code>
