@@ -560,5 +560,26 @@ if ( ! function_exists('html_escape'))
 	}
 }
 
+// ------------------------------------------------------------------------
+
+/**
+* Show formated var_dump output
+*
+* @access	public
+* @param	mixed
+* @param    boolean
+* @return	void
+*/
+if ( ! function_exists('vardump'))
+{
+	function vardump($dump_var, $die = false)
+	{
+		echo '<pre>';
+		var_dump($dump_var);
+		echo '</pre>';
+		if ($die) die();
+	}
+}
+
 /* End of file Common.php */
 /* Location: ./system/core/Common.php */
