@@ -43,18 +43,39 @@ class Spider
 	 */
 	private $_cookie = NULL;
 
+	/**
+	 * read content timeout
+	 */
 	private $_timeout = '';
 
+	/**
+	 * http referer to send to host
+	 */
 	private $_http_referer = '';
 
+	/**
+	 * url to access
+	 */
 	private $_url = NULL;
 
+	/**
+	 * HTTP POST data fields
+	 */
 	private $_post_fields = array();
 
+	/**
+	 * return the transfer as a string of the return value instead of outputting it out directly.
+	 */
 	private $_returntransfer = 1;
 
+	/**
+	 * real path to save response content
+	 */
 	private $_file = '';
 
+	/**
+	 * http headers seted
+	 */
 	private $_http_header = '';
 
 	/**
@@ -107,7 +128,10 @@ class Spider
 	}
 
 	/**
-	 *
+	 * execute the request
+	 * 
+	 * @access public
+	 * @return array
 	 */
 	public function exec()
 	{
@@ -166,18 +190,37 @@ class Spider
 		return $return_array;
 	}
 
+	/**
+	 * execute the request by HTTP POST method
+	 *
+	 * @access public
+	 * @return array
+	 */
 	public function post()
 	{
 		$this->set_method('POST');
 		return $this->exec();
 	}
 
+	/**
+	 * execute the request by HTTP GET method
+	 *
+	 * @access public
+	 * @return array
+	 */
 	public function get()
 	{
 		$this->set_method('GET');
 		return $this->exec();
 	}
 
+	/**
+	 * set cookies used in request
+	 *
+	 * @access public
+	 * @param array
+	 * @return void
+	 */
 	public function set_cookies($cookie_array = array())
 	{
 		if (!empty($cookie))
@@ -190,23 +233,52 @@ class Spider
 		}
 	}
 
+	/**
+	 * set user_agent used by Spider
+	 *
+	 * @access public
+	 * @param string
+	 * @return void
+	 */
 	public function set_user_agent($user_agent = '')
 	{
 		$this->_user_agent = $user_agent;
 	}
 
+	/**
+	 * set the HTTP request method, default by GET
+	 *
+	 * @access public
+	 * @param string
+	 * @return void
+	 */
 	public function set_method($request_method = 'GET')
 	{
 		$this->_method = strtoupper($request_method);
 	}
 
+	/**
+	 * set url to access
+	 *
+	 * @access public
+	 * @param string
+	 * @return void
+	 */
 	public function set_url($request_url = '')
 	{
 		$this->_url = $request_url;
 	}
 
+	/**
+	 * set file path to store the content by response
+	 *
+	 * @access public
+	 * @param string
+	 * @return void
+	 */
 	public function set_file($file_path = '')
 	{
+		// TODO:
 		//if ( ! is_dir($file_path))
 		//{
 			
@@ -219,11 +291,25 @@ class Spider
 		$this->_file = $file_path;
 	}
 
+	/**
+	 * set post fields when use HTTP POST method need send data
+	 *
+	 * @access public
+	 * @param array
+	 * @return void
+	 */
 	public function set_post_fields($post_fields = array())
 	{
 		// $this->_post_fields 
 	}
 
+	/**
+	 * set http headers to send to host
+	 *
+	 * @access public
+	 * @param array
+	 * @return void
+	 */
 	public function set_http_header($http_headers = array())
 	{
 		// key=>value array,使用ucfirst处理key以便不用区分大小写
