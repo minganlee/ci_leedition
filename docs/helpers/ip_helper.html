@@ -48,8 +48,55 @@
 <!--<br clear="all" />--><!-- START CONTENT -->
 <div id="content">
 <h1>IP 辅助函数</h1>
+<p>IP辅助函数文件包含了获得IP地址相关信息的函数</p>
 
+<h2>加载该辅助函数</h2>
+<p>本辅助函数通过如下代码加载：</p>
+<code>$this-&gt;load-&gt;helper('ip');</code>
 
+<h2>可用函数如下：</h2>
+<h2>ip_location('<var>ip_string</var>')</h2>
+<p><var>ip_string</var>是一个包含IP地址的字符串（string），例如“36.250.226.6”</p>
+<p>函数使用例子：</p>
+<code>ip_location('36.250.226.6');</code>
+<p>注意：请将“36.250.226.6” 这个IP地址替换为需要处理的IP地址！</p>
+<p>IP辅助函数的将返回一个数组（array）,如下所示：</p>
+<pre>
+array(2) {
+  ["code"]=>
+  int(0)
+  ["data"]=>
+  array(13) {
+    ["country"]=>
+    string(6) "中国"
+    ["country_id"]=>
+    string(2) "CN"
+    ["area"]=>
+    string(6) "华东"
+    ["area_id"]=>
+    string(6) "300000"
+    ["region"]=>
+    string(9) "福建省"
+    ["region_id"]=>
+    string(6) "350000"
+    ["city"]=>
+    string(9) "福州市"
+    ["city_id"]=>
+    string(6) "350100"
+    ["county"]=>
+    string(0) ""
+    ["county_id"]=>
+    string(2) "-1"
+    ["isp"]=>
+    string(6) "联通"
+    ["isp_id"]=>
+    string(6) "100026"
+    ["ip"]=>
+    string(12) "36.250.226.6"
+  }
+}
+</pre>
+<p>其中code的值的含义为，0：成功，1：失败。</p>
 <!-- END CONTENT -->
 <div id="footer">
   <p>
