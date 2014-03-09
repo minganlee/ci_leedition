@@ -151,6 +151,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'helpers/typography_helper.html">排版辅助函数</a></li>' +
 		'<li><a href="'+base+'helpers/url_helper.html">URL 辅助函数</a></li>' +
 		'<li><a href="'+base+'helpers/xml_helper.html">XML 辅助函数</a></li>' +
+		'<li><a href="'+base+'helpers/ip_helper.html">IP 辅助函数</a></li>' +
 		'</ul>' +
 
 		'</td></tr></table>');

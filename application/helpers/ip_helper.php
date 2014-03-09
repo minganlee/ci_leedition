@@ -22,7 +22,7 @@
  * @subpackage	Helpers
  * @category	Helpers
  * @author		auiog413 <lbzqh156@gmail.com>
- * @link		http://codeigniter.com/user_guide/helpers/array_helper.html
+ * @link		ci_leedition/doc/helpers/ip_helper.html
  */
 
 // ------------------------------------------------------------------------
