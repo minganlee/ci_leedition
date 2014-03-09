@@ -105,7 +105,7 @@ class Spider
 	{
 		if (!function_exists('curl_version'))
 		{
-			show_error('Your PHP Interpreter May Be Missing CURL extension.');
+			show_error('Oops! Your PHP Interpreter May Be Missing CURL extension.');
 		}
 	}
 
