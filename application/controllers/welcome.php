@@ -23,11 +23,6 @@ class Welcome extends CI_Controller {
 		vardump(ip_location('58.23.46.30'),true);
 		$this->load->view('welcome_message');
 	}
-
-	public function spider()
-	{
-		vardump($_SERVER);
-	}
 }
 
 /* End of file welcome.php */
