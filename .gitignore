@@ -1,4 +1,12 @@
 .DS_Store
+
 nbproject
-/statics/captcha/
-!/statics/captcha/index.html
+statics/captcha/*
+!statics/captcha/index.html
+
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
