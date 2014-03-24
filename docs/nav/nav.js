@@ -117,6 +117,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/user_agent.html">User-Agent 类</a></li>' +
 		'<li><a href="'+base+'libraries/xmlrpc.html">XML-RPC 类</a></li>' +
 		'<li><a href="'+base+'libraries/zip.html">Zip 编码类</a></li>' +
+		'<li><a href="'+base+'libraries/spider.html">Spider 类</a></li>' +
 		'</ul>' +
 
 		'</td><td class="td_sep" valign="top">' +
