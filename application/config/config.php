@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://www.cil.com/';
+$config['base_url']	= 'http://cil.itron.me/';
 
 /*
 |--------------------------------------------------------------------------

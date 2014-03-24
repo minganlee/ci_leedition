@@ -19,10 +19,28 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper('ip');
-		vardump(ip_location('58.23.46.30'),true);
+                $configs = array();
+		$this->load->library('captcha', $configs);
+                vardump($this->captcha->create());
 		$this->load->view('welcome_message');
 	}
+        
+        public function captcha_helper()
+        {
+            $this->load->helper('captcha');
+            $vals = array(
+                'word' => 'Random word',
+                'img_path' => './captcha/',
+                'img_url' => '/captcha/',
+                'font_path' => './path/to/fonts/texb.ttf',
+                'img_width' => '150',
+                'img_height' => 30,
+                'expiration' => 7200
+                );
+
+            $cap = create_captcha($vals);
+            echo $cap['image'];
+        }
 }
 
 /* End of file welcome.php */
